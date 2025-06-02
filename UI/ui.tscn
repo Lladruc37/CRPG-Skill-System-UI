@@ -1,0 +1,245 @@
+[gd_scene load_steps=15 format=3 uid="uid://ddmg7ulvts47o"]
+
+[ext_resource type="Script" path="res://UI/ui.gd" id="1_3n8am"]
+[ext_resource type="Texture2D" uid="uid://c8rgs4ksqx8nt" path="res://UI/Images/horizontal_hotbar_all.png" id="2_iduhm"]
+[ext_resource type="PackedScene" uid="uid://bfgqa0ufao718" path="res://UI/ui_skill_button.tscn" id="3_0m436"]
+[ext_resource type="Texture2D" uid="uid://c52dr3q76c8vg" path="res://UI/Images/vertical_character_select_all.png" id="3_lnmc2"]
+[ext_resource type="Texture2D" uid="uid://cib5yoc5bh6ny" path="res://UI/Images/vertical_character_select_single.png" id="4_uhor7"]
+[ext_resource type="Texture2D" uid="uid://brgmspq55r5xm" path="res://UI/Images/vertical_character_select_single-SELECTED.png" id="4_vu04b"]
+[ext_resource type="ButtonGroup" uid="uid://dvwut5mqhpk7r" path="res://UI/character_select_group.tres" id="4_wacbj"]
+[ext_resource type="Script" path="res://UI/character_button.gd" id="5_sb5sm"]
+[ext_resource type="Texture2D" uid="uid://dw0avwsed3djf" path="res://UI/Images/Icons/kinght_80x80.png" id="5_u6il2"]
+[ext_resource type="Texture2D" uid="uid://0jn5vdqwkrd2" path="res://UI/Images/Icons/barbarian_80x80.png" id="8_1j6n0"]
+[ext_resource type="Texture2D" uid="uid://bk26mis2v75qs" path="res://UI/Images/Icons/mage_80x80.png" id="9_qbcxr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iwlhn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0x17w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jp6ub"]
+
+[node name="UI" type="CanvasLayer" node_paths=PackedStringArray("skill_buttons_holder")]
+script = ExtResource("1_3n8am")
+skill_buttons_holder = NodePath("Control/MarginContainer/TextureRect/HBoxContainer")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = ExtResource("2_iduhm")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/TextureRect"]
+layout_mode = 2
+offset_right = 970.0
+offset_bottom = 100.0
+theme_override_constants/separation = -10
+alignment = 1
+
+[node name="Button" parent="Control/MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("3_0m436")]
+layout_mode = 2
+
+[node name="Button2" parent="Control/MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("3_0m436")]
+layout_mode = 2
+
+[node name="Button3" parent="Control/MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("3_0m436")]
+layout_mode = 2
+
+[node name="Button4" parent="Control/MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("3_0m436")]
+layout_mode = 2
+
+[node name="Button5" parent="Control/MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("3_0m436")]
+layout_mode = 2
+
+[node name="Button6" parent="Control/MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("3_0m436")]
+layout_mode = 2
+
+[node name="Button7" parent="Control/MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("3_0m436")]
+layout_mode = 2
+
+[node name="Button8" parent="Control/MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("3_0m436")]
+layout_mode = 2
+
+[node name="Button9" parent="Control/MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("3_0m436")]
+layout_mode = 2
+
+[node name="Button10" parent="Control/MarginContainer/TextureRect/HBoxContainer" instance=ExtResource("3_0m436")]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("3_lnmc2")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/TextureRect2/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = -2
+
+[node name="Character Button" type="Button" parent="Control/MarginContainer/TextureRect2/MarginContainer/VBoxContainer" node_paths=PackedStringArray("selected")]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_iwlhn")
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("4_wacbj")
+icon = ExtResource("4_uhor7")
+flat = true
+icon_alignment = 1
+script = ExtResource("5_sb5sm")
+selected = NodePath("Selected")
+character_name = "Knight"
+
+[node name="Character Icon" type="TextureRect" parent="Control/MarginContainer/TextureRect2/MarginContainer/VBoxContainer/Character Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_u6il2")
+
+[node name="Selected" type="TextureRect" parent="Control/MarginContainer/TextureRect2/MarginContainer/VBoxContainer/Character Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -44.0
+offset_right = 44.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_vu04b")
+
+[node name="Character Button2" type="Button" parent="Control/MarginContainer/TextureRect2/MarginContainer/VBoxContainer" node_paths=PackedStringArray("selected")]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0x17w")
+toggle_mode = true
+button_group = ExtResource("4_wacbj")
+icon = ExtResource("4_uhor7")
+flat = true
+icon_alignment = 1
+script = ExtResource("5_sb5sm")
+selected = NodePath("Selected")
+character_name = "Barbarian"
+
+[node name="Character Icon" type="TextureRect" parent="Control/MarginContainer/TextureRect2/MarginContainer/VBoxContainer/Character Button2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_1j6n0")
+
+[node name="Selected" type="TextureRect" parent="Control/MarginContainer/TextureRect2/MarginContainer/VBoxContainer/Character Button2"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -44.0
+offset_right = 44.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_vu04b")
+
+[node name="Character Button3" type="Button" parent="Control/MarginContainer/TextureRect2/MarginContainer/VBoxContainer" node_paths=PackedStringArray("selected")]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jp6ub")
+toggle_mode = true
+button_group = ExtResource("4_wacbj")
+icon = ExtResource("4_uhor7")
+flat = true
+icon_alignment = 1
+script = ExtResource("5_sb5sm")
+selected = NodePath("Selected")
+character_name = "Mage"
+
+[node name="Character Icon" type="TextureRect" parent="Control/MarginContainer/TextureRect2/MarginContainer/VBoxContainer/Character Button3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_qbcxr")
+
+[node name="Selected" type="TextureRect" parent="Control/MarginContainer/TextureRect2/MarginContainer/VBoxContainer/Character Button3"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -44.0
+offset_right = 44.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_vu04b")
+
+[connection signal="on_character_button_pressed" from="Control/MarginContainer/TextureRect2/MarginContainer/VBoxContainer/Character Button" to="." method="_on_character_button_pressed"]
+[connection signal="toggled" from="Control/MarginContainer/TextureRect2/MarginContainer/VBoxContainer/Character Button" to="Control/MarginContainer/TextureRect2/MarginContainer/VBoxContainer/Character Button" method="_on_toggled"]
+[connection signal="on_character_button_pressed" from="Control/MarginContainer/TextureRect2/MarginContainer/VBoxContainer/Character Button2" to="." method="_on_character_button_pressed"]
+[connection signal="toggled" from="Control/MarginContainer/TextureRect2/MarginContainer/VBoxContainer/Character Button2" to="Control/MarginContainer/TextureRect2/MarginContainer/VBoxContainer/Character Button2" method="_on_toggled"]
+[connection signal="on_character_button_pressed" from="Control/MarginContainer/TextureRect2/MarginContainer/VBoxContainer/Character Button3" to="." method="_on_character_button_pressed"]
+[connection signal="toggled" from="Control/MarginContainer/TextureRect2/MarginContainer/VBoxContainer/Character Button3" to="Control/MarginContainer/TextureRect2/MarginContainer/VBoxContainer/Character Button3" method="_on_toggled"]

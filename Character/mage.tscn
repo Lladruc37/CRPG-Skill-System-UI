@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://bowwapid7gcsk"]
+
+[ext_resource type="PackedScene" uid="uid://xxsn64w2rfwc" path="res://Character/character.tscn" id="1_uaug2"]
+[ext_resource type="PackedScene" uid="uid://dv86p40s7yt5a" path="res://Skills/fireball.tscn" id="2_on2u3"]
+[ext_resource type="PackedScene" uid="uid://dnsquo4je2dwa" path="res://Skills/fire_breath.tscn" id="3_gpg7x"]
+[ext_resource type="PackedScene" uid="uid://dl6ldajc5gu2l" path="res://Skills/frost_bomb.tscn" id="4_yrkdn"]
+[ext_resource type="PackedScene" uid="uid://cg25cej8bpje0" path="res://Skills/healing_word.tscn" id="5_rr7se"]
+[ext_resource type="PackedScene" uid="uid://dyj2jlfok1ixs" path="res://Skills/scorching_ray.tscn" id="6_j5pg1"]
+[ext_resource type="PackedScene" uid="uid://douyecx1j7bdu" path="res://Skills/silence.tscn" id="7_yem5j"]
+
+[node name="Mage" instance=ExtResource("1_uaug2")]
+character_name = "Mage"
+character_body = 2
+
+[node name="Knight" parent="." index="1"]
+visible = false
+
+[node name="Mage" parent="." index="3"]
+visible = true
+
+[node name="Fireball" parent="Skills" index="0" instance=ExtResource("2_on2u3")]
+
+[node name="Fire Breath" parent="Skills" index="1" instance=ExtResource("3_gpg7x")]
+
+[node name="Frost Bomb" parent="Skills" index="2" instance=ExtResource("4_yrkdn")]
+
+[node name="Healing Word" parent="Skills" index="3" instance=ExtResource("5_rr7se")]
+
+[node name="Scorching Ray" parent="Skills" index="4" instance=ExtResource("6_j5pg1")]
+
+[node name="Silence" parent="Skills" index="5" instance=ExtResource("7_yem5j")]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl6ldajc5gu2l"]
+
+[ext_resource type="PackedScene" uid="uid://djo7ou2u6kcw" path="res://Skills/skill.tscn" id="1_qrhhc"]
+[ext_resource type="Texture2D" uid="uid://dblxmymt30vr7" path="res://UI/Images/Icons/frost_bomb_icon.png" id="2_dn0bi"]
+
+[node name="Frost Bomb" instance=ExtResource("1_qrhhc")]
+skill_name = "Frost Bomb"
+skill_icon = ExtResource("2_dn0bi")
+skill_range = 10.0
+targeting_type = 3
+effect_amount = 20.0

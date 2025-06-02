@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://xxsn64w2rfwc"]
+
+[ext_resource type="Script" path="res://Character/character.gd" id="1_y4dt5"]
+[ext_resource type="Material" uid="uid://owhyp28vfco" path="res://Camera/Markers/Selected_hover.tres" id="2_8g8nh"]
+[ext_resource type="PackedScene" uid="uid://b3foodlaokb40" path="res://Character/Models/barbarian_model.tscn" id="3_jyj2m"]
+[ext_resource type="PackedScene" uid="uid://citou7gcd33dy" path="res://Character/Models/knight_model.tscn" id="4_w5mcf"]
+[ext_resource type="PackedScene" uid="uid://caan3vn4s5cfj" path="res://Character/Models/mage_model.tscn" id="5_v0t1v"]
+[ext_resource type="PackedScene" uid="uid://btwhtmjxd1aj0" path="res://Character/Models/rogue_model.tscn" id="6_im7am"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2vkpv"]
+radius = 0.675
+height = 2.65
+
+[node name="Character" type="Node3D" node_paths=PackedStringArray("barbarian_body", "knight_body", "mage_body", "rogue_body", "skills_parent")]
+script = ExtResource("1_y4dt5")
+character_name = "NPC"
+selected_material_hover = ExtResource("2_8g8nh")
+barbarian_body = NodePath("Barbarian")
+knight_body = NodePath("Knight")
+mage_body = NodePath("Mage")
+rogue_body = NodePath("Rogue")
+skills_parent = NodePath("Skills")
+
+[node name="SelectionArea" type="Area3D" parent="." groups=["character"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SelectionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1006, 0)
+shape = SubResource("CapsuleShape3D_2vkpv")
+
+[node name="Knight" parent="." instance=ExtResource("4_w5mcf")]
+
+[node name="Barbarian" parent="." instance=ExtResource("3_jyj2m")]
+visible = false
+
+[node name="Mage" parent="." instance=ExtResource("5_v0t1v")]
+visible = false
+
+[node name="Rogue" parent="." instance=ExtResource("6_im7am")]
+visible = false
+
+[node name="Skills" type="Node" parent="."]
+
+[connection signal="targets_selected" from="." to="." method="_on_targets_selected"]
+[connection signal="area_entered" from="SelectionArea" to="." method="_on_selection_area_area_entered"]
+[connection signal="area_exited" from="SelectionArea" to="." method="_on_selection_area_area_exited"]
+[connection signal="input_event" from="SelectionArea" to="." method="_on_selection_area_input_event"]
+[connection signal="mouse_entered" from="SelectionArea" to="." method="_on_selection_area_mouse_entered"]
+[connection signal="mouse_exited" from="SelectionArea" to="." method="_on_selection_area_mouse_exited"]

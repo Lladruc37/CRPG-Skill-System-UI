@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://67ankm6ktvyp"]
+
+[ext_resource type="PackedScene" uid="uid://djo7ou2u6kcw" path="res://Skills/skill.tscn" id="1_i3olk"]
+[ext_resource type="Texture2D" uid="uid://cqf7xu1to2q0f" path="res://UI/Images/Icons/smite_icon.png" id="2_t5kqw"]
+
+[node name="Smite" instance=ExtResource("1_i3olk")]
+skill_name = "Smite"
+skill_icon = ExtResource("2_t5kqw")
+skill_range = 5.0
+targeting_filters = Array[int]([2, 3])
+effect_amount = 30.0

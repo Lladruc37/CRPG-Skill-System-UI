@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cacy2evk2kprs"]
+
+[ext_resource type="PackedScene" uid="uid://xxsn64w2rfwc" path="res://Character/character.tscn" id="1_7j5at"]
+[ext_resource type="PackedScene" uid="uid://dnsquo4je2dwa" path="res://Skills/fire_breath.tscn" id="2_3tcb8"]
+[ext_resource type="PackedScene" uid="uid://br2shru42m2p1" path="res://Skills/haste.tscn" id="3_oqy5v"]
+[ext_resource type="PackedScene" uid="uid://d1hb00vstcvq8" path="res://Skills/warcry.tscn" id="5_lq3g3"]
+
+[node name="Barbarian" instance=ExtResource("1_7j5at")]
+character_name = "Barbarian"
+character_body = 0
+
+[node name="Knight" parent="." index="1"]
+visible = false
+
+[node name="Barbarian" parent="." index="2"]
+visible = true
+
+[node name="Fire Breath" parent="Skills" index="0" instance=ExtResource("2_3tcb8")]
+
+[node name="Haste" parent="Skills" index="1" instance=ExtResource("3_oqy5v")]
+
+[node name="Warcry" parent="Skills" index="2" instance=ExtResource("5_lq3g3")]

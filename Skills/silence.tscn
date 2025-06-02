@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://douyecx1j7bdu"]
+
+[ext_resource type="PackedScene" uid="uid://djo7ou2u6kcw" path="res://Skills/skill.tscn" id="1_xlmmc"]
+[ext_resource type="Texture2D" uid="uid://c216eeakcqh50" path="res://UI/Images/Icons/silence_icon.png" id="2_7ih8d"]
+
+[node name="Silence" instance=ExtResource("1_xlmmc")]
+skill_name = "Silence"
+skill_icon = ExtResource("2_7ih8d")
+skill_range = 7.0
+targeting_filters = Array[int]([1, 2, 3])
+effect = 1
+status_name = "Silence"
+status_duration = 2

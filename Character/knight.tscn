@@ -1,0 +1,18 @@
+[gd_scene load_steps=6 format=3 uid="uid://chy1ctncm7yyq"]
+
+[ext_resource type="PackedScene" uid="uid://xxsn64w2rfwc" path="res://Character/character.tscn" id="1_2crtr"]
+[ext_resource type="PackedScene" uid="uid://br2shru42m2p1" path="res://Skills/haste.tscn" id="3_r8in7"]
+[ext_resource type="PackedScene" uid="uid://cg25cej8bpje0" path="res://Skills/healing_word.tscn" id="4_nlkyr"]
+[ext_resource type="PackedScene" uid="uid://douyecx1j7bdu" path="res://Skills/silence.tscn" id="4_rqith"]
+[ext_resource type="PackedScene" uid="uid://67ankm6ktvyp" path="res://Skills/smite.tscn" id="5_bj3fq"]
+
+[node name="Knight" instance=ExtResource("1_2crtr")]
+character_name = "Knight"
+
+[node name="Haste" parent="Skills" index="0" instance=ExtResource("3_r8in7")]
+
+[node name="Healing Word" parent="Skills" index="1" instance=ExtResource("4_nlkyr")]
+
+[node name="Silence" parent="Skills" index="2" instance=ExtResource("4_rqith")]
+
+[node name="Smite" parent="Skills" index="3" instance=ExtResource("5_bj3fq")]

@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfgqa0ufao718"]
+
+[ext_resource type="ButtonGroup" uid="uid://ctqne1ky6ay8f" path="res://UI/hotbar_group.tres" id="2_ecjte"]
+[ext_resource type="Script" path="res://UI/skill_button.gd" id="3_hxv5j"]
+[ext_resource type="Texture2D" uid="uid://c3hnqxx2l26d8" path="res://UI/Images/horizontal_hotbar_single.png" id="3_nhvi3"]
+[ext_resource type="Texture2D" uid="uid://q366ei8l3tdr" path="res://UI/Images/Icons/fireball_icon.png" id="4_xunyn"]
+[ext_resource type="Texture2D" uid="uid://cn3s6i7aijlvj" path="res://UI/Images/horizontal_hotbar_single-SELECTED.png" id="6_vuha5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rji87"]
+
+[node name="Button" type="Button" node_paths=PackedStringArray("skill_icon", "selected")]
+offset_right = 8.0
+offset_bottom = 8.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rji87")
+toggle_mode = true
+button_group = ExtResource("2_ecjte")
+icon = ExtResource("3_nhvi3")
+flat = true
+icon_alignment = 1
+script = ExtResource("3_hxv5j")
+skill_icon = NodePath("Skill Icon")
+selected = NodePath("Selected")
+
+[node name="Skill Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_xunyn")
+
+[node name="Selected" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.0
+offset_top = -44.0
+offset_right = 47.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_vuha5")
+
+[connection signal="toggled" from="." to="." method="_on_toggled"]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv86p40s7yt5a"]
+
+[ext_resource type="PackedScene" uid="uid://djo7ou2u6kcw" path="res://Skills/skill.tscn" id="1_56w88"]
+[ext_resource type="Texture2D" uid="uid://q366ei8l3tdr" path="res://UI/Images/Icons/fireball_icon.png" id="2_tl7pv"]
+
+[node name="Fireball" instance=ExtResource("1_56w88")]
+skill_name = "Fireball"
+skill_icon = ExtResource("2_tl7pv")
+skill_range = 10.0
+targeting_type = 3
+effect_amount = 25.0

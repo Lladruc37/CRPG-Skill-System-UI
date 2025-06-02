@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnsquo4je2dwa"]
+
+[ext_resource type="PackedScene" uid="uid://djo7ou2u6kcw" path="res://Skills/skill.tscn" id="1_wp3x1"]
+[ext_resource type="Texture2D" uid="uid://d2wh4wucu1j8a" path="res://UI/Images/Icons/fire_breath_icon.png" id="2_0h0bj"]
+
+[node name="Fire Breath" instance=ExtResource("1_wp3x1")]
+skill_name = "Fire Breath"
+skill_icon = ExtResource("2_0h0bj")
+skill_range = 5.0
+targeting_type = 1
+effect_amount = 35.0

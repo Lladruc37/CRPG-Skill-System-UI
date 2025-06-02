@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyj2jlfok1ixs"]
+
+[ext_resource type="PackedScene" uid="uid://djo7ou2u6kcw" path="res://Skills/skill.tscn" id="1_q34nq"]
+[ext_resource type="Texture2D" uid="uid://dd1511w3yemij" path="res://UI/Images/Icons/scorching_ray_icon.png" id="2_j8o1r"]
+
+[node name="Scorching Ray" instance=ExtResource("1_q34nq")]
+skill_name = "Scorching Ray"
+skill_icon = ExtResource("2_j8o1r")
+skill_range = 15.0
+targeting_type = 2
+effect_amount = 15.0

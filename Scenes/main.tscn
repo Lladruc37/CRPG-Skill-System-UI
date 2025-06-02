@@ -1,0 +1,100 @@
+[gd_scene load_steps=13 format=3 uid="uid://bstqqy1vafwb8"]
+
+[ext_resource type="PackedScene" uid="uid://ddmg7ulvts47o" path="res://UI/ui.tscn" id="2_1ude1"]
+[ext_resource type="Script" path="res://Camera/camera.gd" id="2_p2nel"]
+[ext_resource type="PackedScene" uid="uid://cacy2evk2kprs" path="res://Character/barbarian.tscn" id="3_4fl0q"]
+[ext_resource type="PackedScene" uid="uid://chy1ctncm7yyq" path="res://Character/knight.tscn" id="4_ykjaf"]
+[ext_resource type="PackedScene" uid="uid://bowwapid7gcsk" path="res://Character/mage.tscn" id="5_r36pn"]
+[ext_resource type="PackedScene" uid="uid://c2xu5sxb3wn00" path="res://Character/rogue.tscn" id="6_o23g0"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_l4d6k"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_pbx33"]
+sky_material = SubResource("ProceduralSkyMaterial_l4d6k")
+
+[sub_resource type="Environment" id="Environment_drf2b"]
+background_mode = 2
+sky = SubResource("Sky_pbx33")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_31cxi"]
+size = Vector3(1000, 0.1, 1000)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xvpsb"]
+albedo_color = Color(0.425642, 0.322874, 0.0397902, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mfgar"]
+size = Vector2(1000, 1000)
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_drf2b")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 10, 5)
+script = ExtResource("2_p2nel")
+
+[node name="UI" parent="." instance=ExtResource("2_1ude1")]
+layer = 0
+
+[node name="Ground" type="StaticBody3D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="Ground Collision" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_31cxi")
+
+[node name="Ground Mesh" type="MeshInstance3D" parent="Ground/Ground Collision"]
+material_override = SubResource("StandardMaterial3D_xvpsb")
+mesh = SubResource("PlaneMesh_mfgar")
+skeleton = NodePath("../../..")
+
+[node name="Barbarian" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("3_4fl0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03472, 0, -7.69654)
+relationship = 1
+camera = NodePath("../Camera")
+
+[node name="Knight" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("4_ykjaf")]
+relationship = 0
+is_current_player_character = true
+camera = NodePath("../Camera")
+
+[node name="Mage" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("5_r36pn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4726, 0, -2.16848)
+relationship = 1
+camera = NodePath("../Camera")
+
+[node name="Rogue" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("6_o23g0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26122, 0, -1.16791)
+relationship = 3
+camera = NodePath("../Camera")
+
+[node name="Rogue2" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("6_o23g0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.82892, 0, -9.36544)
+character_name = "Rogue 2"
+relationship = 3
+camera = NodePath("../Camera")
+
+[connection signal="connect_character_to_signal" from="Barbarian" to="UI" method="_on_connect_character_to_signal"]
+[connection signal="send_player_skills" from="Barbarian" to="UI" method="_on_character_send_player_skills"]
+[connection signal="targets_selected" from="Barbarian" to="UI" method="_on_targets_selected"]
+[connection signal="connect_character_to_signal" from="Knight" to="UI" method="_on_connect_character_to_signal"]
+[connection signal="send_player_skills" from="Knight" to="UI" method="_on_character_send_player_skills"]
+[connection signal="targets_selected" from="Knight" to="UI" method="_on_targets_selected"]
+[connection signal="connect_character_to_signal" from="Mage" to="UI" method="_on_connect_character_to_signal"]
+[connection signal="send_player_skills" from="Mage" to="UI" method="_on_character_send_player_skills"]
+[connection signal="targets_selected" from="Mage" to="UI" method="_on_targets_selected"]
+[connection signal="connect_character_to_signal" from="Rogue" to="UI" method="_on_connect_character_to_signal"]
+[connection signal="send_player_skills" from="Rogue" to="UI" method="_on_character_send_player_skills"]
+[connection signal="targets_selected" from="Rogue" to="UI" method="_on_targets_selected"]
+[connection signal="connect_character_to_signal" from="Rogue2" to="UI" method="_on_connect_character_to_signal"]
+[connection signal="send_player_skills" from="Rogue2" to="UI" method="_on_character_send_player_skills"]
+[connection signal="targets_selected" from="Rogue2" to="UI" method="_on_targets_selected"]

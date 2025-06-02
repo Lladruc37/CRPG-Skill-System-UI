@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://devj7gnp3row3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bfcmv"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.235294)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jiiei"]
+height = 0.01
+
+[node name="Range Marker" type="MeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_bfcmv")
+mesh = SubResource("CylinderMesh_jiiei")

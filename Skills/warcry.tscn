@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1hb00vstcvq8"]
+
+[ext_resource type="PackedScene" uid="uid://djo7ou2u6kcw" path="res://Skills/skill.tscn" id="1_luou0"]
+[ext_resource type="Texture2D" uid="uid://t7ennahn0om2" path="res://UI/Images/Icons/warcry_icon.png" id="2_1ifd8"]
+
+[node name="Warcry" instance=ExtResource("1_luou0")]
+skill_name = "Warcry"
+skill_icon = ExtResource("2_1ifd8")
+targeting_filters = Array[int]([0])
+effect = 1
+status_name = "Damage Buff"
+status_duration = 2

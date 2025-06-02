@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg25cej8bpje0"]
+
+[ext_resource type="PackedScene" uid="uid://djo7ou2u6kcw" path="res://Skills/skill.tscn" id="1_6bt0c"]
+[ext_resource type="Texture2D" uid="uid://cs1o4wxxjnian" path="res://UI/Images/Icons/healing_word_icon.png" id="2_d5tds"]
+
+[node name="Healing Word" instance=ExtResource("1_6bt0c")]
+skill_name = "Healing Word"
+skill_icon = ExtResource("2_d5tds")
+skill_range = 10.0
+targeting_filters = Array[int]([0, 1, 2])
+effect = 2
+effect_amount = 35.0

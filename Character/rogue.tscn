@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2xu5sxb3wn00"]
+
+[ext_resource type="PackedScene" uid="uid://xxsn64w2rfwc" path="res://Character/character.tscn" id="1_omyv2"]
+[ext_resource type="PackedScene" uid="uid://dl6ldajc5gu2l" path="res://Skills/frost_bomb.tscn" id="2_skel1"]
+[ext_resource type="PackedScene" uid="uid://br2shru42m2p1" path="res://Skills/haste.tscn" id="3_kkkw8"]
+[ext_resource type="PackedScene" uid="uid://douyecx1j7bdu" path="res://Skills/silence.tscn" id="4_gtu52"]
+
+[node name="Rogue" instance=ExtResource("1_omyv2")]
+character_name = "Rogue"
+character_body = 3
+
+[node name="Knight" parent="." index="1"]
+visible = false
+
+[node name="Rogue" parent="." index="4"]
+visible = true
+
+[node name="Frost Bomb" parent="Skills" index="0" instance=ExtResource("2_skel1")]
+
+[node name="Haste" parent="Skills" index="1" instance=ExtResource("3_kkkw8")]
+
+[node name="Silence" parent="Skills" index="2" instance=ExtResource("4_gtu52")]
